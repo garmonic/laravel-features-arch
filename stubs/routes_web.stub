@@ -1,0 +1,7 @@
+<?php
+
+use Features\DummyFeature\Core\Http\Controllers\MainController;
+use Illuminate\Support\Facades\Route;
+
+/* All routes will be started with /DummyRouteBase */
+Route::get('/', [MainController::class, 'home'])->name('home');

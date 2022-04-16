@@ -1,0 +1,9 @@
+<?php
+
+/*
+    Put here settings of your feature.
+*/
+
+return  [
+    //
+];

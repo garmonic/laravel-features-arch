@@ -1,0 +1,15 @@
+<?php
+
+namespace Features\DummyFeature\Core\Http\Controllers;
+
+use Garmonic\FeaturesArch\BaseController;
+
+class MainController extends BaseController
+{
+    protected string $featureName = 'DummyFeature';
+
+    public function home()
+    {
+        return $this->feature->view('home');
+    }
+}

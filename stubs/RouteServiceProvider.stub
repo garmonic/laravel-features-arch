@@ -1,0 +1,48 @@
+<?php
+
+namespace Features\DummyFeature\Core\Providers;
+
+use Garmonic\FeaturesArch\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Cache\RateLimiting\Limit;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Support\Facades\Route;
+
+class RouteServiceProvider extends ServiceProvider
+{
+    /**
+     * Define your route model bindings, pattern filters, etc.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        $featureName = $this->feature->getName();
+        $this->configureRateLimiting();
+        $routeBase = $this->feature->getRouteBase();
+
+        $this->routes(function () use ($featureName, $routeBase) {
+            Route::prefix('api/'.$routeBase)
+                ->name('api.'.$featureName.'.')
+                ->middleware('api')
+                ->group($this->getBasePath('routes/api.php'));
+
+            Route::prefix($routeBase)
+                ->name($featureName.'.')
+                ->middleware('web')
+                ->group($this->getBasePath('routes/web.php'));
+        });
+    }
+
+    /**
+     * Configure the rate limiters for the application.
+     *
+     * @return void
+     */
+    protected function configureRateLimiting()
+    {
+        RateLimiter::for('api', function (Request $request) {
+            return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
+        });
+    }
+}

@@ -1,0 +1,18 @@
+<?php
+
+namespace Features\DummyFeature;
+
+use Garmonic\FeaturesArch\Feature as BaseFeature;
+
+class Feature extends BaseFeature
+{
+    /**
+     * @inheritDoc
+     */
+    protected string $name = 'DummyFeature';
+
+    /**
+     * @inheritDoc
+     */
+    protected string $routeBase = 'DummyRouteBase';
+}
