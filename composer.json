@@ -23,7 +23,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Garmonic\\FeaturesArch\\FeatureServiceProvider"
+                "Garmonic\\FeaturesArch\\Providers\\FeatureServiceProvider"
             ]
         }
     }
