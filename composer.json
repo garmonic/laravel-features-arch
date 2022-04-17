@@ -9,7 +9,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Garmonic\\FeaturedArch\\": "src"
+            "Garmonic\\FeaturesArch\\": "src"
         }
     },
     "license": "MIT",
