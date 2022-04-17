@@ -3,7 +3,7 @@
     "description": "This package helps you to divide you Laravel project code by features, encapsulated in separate folders. Each feature has its own container, configuration, routes, views and providers. You can enable and disable your features in general config file.",
     "type": "library",
     "require": {
-        "php": "^7.4|8.0",
+        "php": "^7.4|^8.0",
         "laravel/framework": "^8.0|^9.0",
         "symfony/finder": "^5.0|^6.0"
     },
