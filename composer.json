@@ -1,0 +1,30 @@
+{
+    "name": "garmonic/laravel-features-arch",
+    "description": "This package helps you to divide you Laravel project code by features, encapsulated in separate folders. Each feature has its own container, configuration, routes, views and providers. You can enable and disable your features in general config file.",
+    "type": "library",
+    "require": {
+        "php": "^7.4|8.0",
+        "laravel/framework": "^8.0|^9.0",
+        "symfony/finder": "^5.0|^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Garmonic\\FeaturedArch\\": "src"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexey Vasilyev",
+            "email": "garmonic@protonmail.com",
+            "homepage": "https://github.com/garmonic"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Garmonic\\FeatureArch\\FeatureServiceProvider"
+            ]
+        }
+    }
+}

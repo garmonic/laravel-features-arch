@@ -31,7 +31,7 @@ class FeatureMakeCommand extends Command
      *
      * @var string
      */
-    protected string $stubsDir = 'modules/garmonic/laravel-features-arch/stubs/';
+    protected string $stubsDir = __DIR__.'/../../stubs/';
 
     /**
      * Feature files path
