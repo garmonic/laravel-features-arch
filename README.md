@@ -2,7 +2,7 @@
 
 ## Description
 
-This package helps you to divide you Laravel project code by features, encapsulated in separate folders. Each feature has its own container, configuration, routes, views and providers. You can enable and disable your features in general config file.
+This package helps you to divide your Laravel project code by features, encapsulated in separate folders. Each feature has its own container, configuration, routes, views and providers. You can enable and disable your features in general config file.
 
 ## Installation
 
@@ -58,7 +58,7 @@ You can create your own controllers for feature, each of them should extend `Gar
 
 -   `Core/Providers/MainServiceProvider.php` — empty **service provider**, you are welcome to add there some bindings (as you do in `AppServiceProvider`), that will be actual for this feature.
 
-You can use global container (`App::singleton()` or `App::bind()`) or **feature container** (`$this->feature->bind()`).
+You can use global container (`App::singleton()` or `App::bind()`) or **feature container** (`$this->feature->singleton()` or `$this->feature->bind()`).
 
 -   `Core/Providers/RouteServiceProvider.php` — this service provider is responsible for loading feature routes. Be careful while changing its code.
 -   `resources/views/home.blade.php` — sample **view**.

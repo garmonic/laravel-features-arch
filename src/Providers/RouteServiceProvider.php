@@ -2,28 +2,13 @@
 
 namespace Garmonic\FeaturesArch\Providers;
 
-use Garmonic\FeaturesArch\Feature;
+use Garmonic\FeaturesArch\Providers\Contracts\SettingFeatureContract;
+use Garmonic\FeaturesArch\Providers\Traits\SetsFeature;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
-class RouteServiceProvider extends ServiceProvider
+class RouteServiceProvider extends ServiceProvider implements SettingFeatureContract
 {
-    /**
-     * Feature instance
-     *
-     * @var Feature
-     */
-    protected Feature $feature;
-
-    /**
-     * Binds feature instance
-     *
-     * @param Feature $feature
-     * @return void
-     */
-    public function setFeature(Feature $feature)
-    {
-        $this->feature = $feature;
-    }
+    use SetsFeature;
 
     /**
      * Returns the base path for specified path

@@ -2,19 +2,11 @@
 
 namespace Garmonic\FeaturesArch\Providers;
 
-use Garmonic\FeaturesArch\Feature;
+use Garmonic\FeaturesArch\Providers\Contracts\SettingFeatureContract;
+use Garmonic\FeaturesArch\Providers\Traits\SetsFeature;
 use Illuminate\Support\ServiceProvider;
 
-class MainServiceProvider extends ServiceProvider
+class MainServiceProvider extends ServiceProvider implements SettingFeatureContract
 {
-    /**
-     * Binds feature instance
-     *
-     * @param Feature $feature
-     * @return void
-     */
-    public function setFeature(Feature $feature)
-    {
-        $this->feature = $feature;
-    }
+    use SetsFeature;
 }
