@@ -38,7 +38,7 @@ abstract class Feature
      * @var Repository
      */
     protected Repository $configuration;
-    
+
     /**
      * Feature container
      *
@@ -49,7 +49,7 @@ abstract class Feature
     public function __construct()
     {
         $this->loadConfig();
-        $this->container = new Container;
+        $this->container = new Container();
         $this->loadServices();
     }
 
@@ -116,6 +116,18 @@ abstract class Feature
         $fullName = $this->name.'.'.$name;
 
         return route($fullName, $parameters, $absolute);
+    }
+
+    /**
+     * Register a shared binding in the container.
+     *
+     * @param  string  $abstract
+     * @param  \Closure|string|null  $concrete
+     * @return void
+     */
+    public function singleton($abstract, $concrete = null)
+    {
+        $this->container->bind($abstract, $concrete, true);
     }
 
     /**
